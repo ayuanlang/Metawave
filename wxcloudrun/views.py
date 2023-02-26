@@ -12,14 +12,14 @@ def index():
     :return: 返回index页面
     """
     return render_template('index.html')
-@app.route('/api/talk')
+@app.route('/api/talk', methods=['POST'])
 def talk():
     """
     :return: 返回index页面
     """
     
    
-    return talk_response()
+    return '王总...'
 
 @app.route('/api/count', methods=['POST'])
 def count():
