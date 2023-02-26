@@ -13,6 +13,11 @@ def index():
     """
     return render_template('index.html')
 
+def talk('/talk'):
+    """
+    :return: 返回index页面
+    """
+    return print('talk')
 
 @app.route('/api/count', methods=['POST'])
 def count():
