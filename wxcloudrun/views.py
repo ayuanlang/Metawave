@@ -19,7 +19,7 @@ def talk():
     """
     
    
-    return print('talk')
+    return talk_response()
 
 @app.route('/api/count', methods=['POST'])
 def count():
