@@ -20,7 +20,8 @@ def talk():
     """
     :return: 返回index页面
     """
-    print(request.data)
+    print(''**************')
+    print('**************',request.data)
    
     xml_to_dct = xmltodict.parse(request.data)
     print(xml_to_dct)
