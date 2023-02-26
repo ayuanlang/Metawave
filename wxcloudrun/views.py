@@ -4,7 +4,8 @@ from run import app
 from wxcloudrun.dao import delete_counterbyid, query_counterbyid, insert_counter, update_counterbyid
 from wxcloudrun.model import Counters
 from wxcloudrun.response import make_succ_empty_response, make_succ_response, make_err_response
-
+import xmltodict
+import  time
 
 @app.route('/')
 def index():
@@ -19,7 +20,28 @@ def talk():
     """
     
    
-    return '王总...'
+    xml_to_dct = xmltodict.parse(request.data)
+    print(xml_to_dct)
+    xml_dict = xml_to_dct.get("xml")
+
+    #提取信息
+    msg_type = xml_dict.get("MsgType")
+    resp_dict = {}
+    if msg_type == "text":
+        #表示发送的文本信息
+        #构造返回值,经由微信服务器回复给用户的内容
+        resp_dict = {
+            "xml":{
+                "ToUserName":xml_dict.get("FromUserName"),
+                "FromUserName":xml_dict.get("ToUserName"),
+                "CreateTime":int(time.time()),
+                "MsgType":"text",
+                "Content":xml_dict.get("Content")+'，王总'
+            }
+        }
+
+    resp = xmltodict.unparse(resp_dict)
+    return  resp
 
 @app.route('/api/count', methods=['POST'])
 def count():
