@@ -12,11 +12,13 @@ def index():
     :return: 返回index页面
     """
     return render_template('index.html')
-
-def talk('/talk'):
+@app.route('/talk')
+def talk():
     """
     :return: 返回index页面
     """
+    params = request.get_json()
+     action = params['action']
     return print('talk')
 
 @app.route('/api/count', methods=['POST'])
