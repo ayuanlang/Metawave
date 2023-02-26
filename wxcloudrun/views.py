@@ -17,8 +17,8 @@ def talk():
     """
     :return: 返回index页面
     """
-    params = request.get_json()
-     action = params['action']
+    
+   
     return print('talk')
 
 @app.route('/api/count', methods=['POST'])
