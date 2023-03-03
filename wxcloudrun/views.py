@@ -20,7 +20,7 @@ def talk():
     """
     :return: 返回index页面
     """
-    print('bcccaaabbbbb')
+    print('jjjbcccaaabbbbb')
     print(request)
     return '接口返回内容'
     
