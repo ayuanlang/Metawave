@@ -21,7 +21,7 @@ def talk():
     :return: 返回index页面
     """
     
-    print('bbbbbbbbbbbbbbb')
+    print('bbbbbbaaaabbbbb')
     args = request.args
     print(request)
     
