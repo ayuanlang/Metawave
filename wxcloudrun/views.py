@@ -22,7 +22,7 @@ def talk():
     """
     print('bcccaaabbbbb')
     print(request)
-    return('接口返回内容'）
+    return '接口返回内容'
     
    
 
