@@ -22,7 +22,7 @@ def talk():
     """
     print('jjjbcccaaabbbbb')
     print(request)
-    return request.data
+    return request.headers
     
    
 
