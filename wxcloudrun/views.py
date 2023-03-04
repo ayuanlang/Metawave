@@ -24,7 +24,7 @@ def talk():
     """
     params = request.get_json()
     for key in params:
-        app.logger.info(key,+":",+params[key])
+        app.logger.info(key+":"+params[key])
     return 'Wang'
     
     
