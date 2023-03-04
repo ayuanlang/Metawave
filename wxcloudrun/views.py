@@ -24,7 +24,7 @@ def talk():
     """
     params = request.get_json()
     app.logger.info("hhhhhhhhhhhhhhInfo message")
-    return('Wang')
+    return 'Wang'
     
     
 
