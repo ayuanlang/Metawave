@@ -20,9 +20,10 @@ def talk():
     """
     :return: 返回index页面
     """
+    params = request.get_json()
     print('jjjbcccaaabbbbb')
     print(request)
-    return request.headers
+    return 'request.headers'
     
    
 
