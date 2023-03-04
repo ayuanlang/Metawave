@@ -23,7 +23,9 @@ def talk():
     params = request.get_json()
     print('jjjbcccaaabbbbb')
     print(request)
-    return params['Content']
+    return params['FromUserName']
+    
+
     
    
 
