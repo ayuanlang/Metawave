@@ -8,6 +8,8 @@ import hashlib
 import json
 import xmltodict 
 import  time
+import logging
+from logging import FileHandler
 
 @app.route('/')
 def index():
@@ -21,9 +23,9 @@ def talk():
     :return: 返回index页面
     """
     params = request.get_json()
-    print('jjjbcccaaabbbbb')
-    print(request)
-    make_succ_response(params['FromUserName'])
+    app.logger.info("hhhhhhhhhhhhhhInfo message")
+    return('Wang')
+    
     
 
     
