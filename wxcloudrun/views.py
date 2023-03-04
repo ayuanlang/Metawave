@@ -23,7 +23,7 @@ def talk():
     params = request.get_json()
     print('jjjbcccaaabbbbb')
     print(request)
-    return params['content']
+    return params['Content']
     
    
 
