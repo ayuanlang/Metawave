@@ -25,7 +25,16 @@ def talk():
     params = request.get_json()
     for key in params.items():
         app.logger.info(key)
-    return 'Wang'
+    article_info = {}
+    data = json.loads(json.dumps(article_info))
+ 
+    data['ToUserName'] = params['FromUserName']
+    data['FromUserName'] = params['ToUserName']
+    data['Content'] = params['Content']
+    app.logger.info(json.dumps(data))
+    return make_succ_response(json.dumps(data))
+
+    
     
     
 
