@@ -30,6 +30,9 @@ def talk():
     app.logger.info('hhhhhhhhhhhhhhhhhhhhh')
     data['ToUserName'] = params['FromUserName']
     data['FromUserName'] = params['ToUserName']
+    data['MsgType'] = params['text']
+    data['CreateTime'] = int(time.time())
+    
     data['Content'] = params['Content']
     app.logger.info(json.dumps(data))
     return make_succ_response(json.dumps(data))
