@@ -27,7 +27,7 @@ def talk():
         app.logger.info(key)
     article_info = {}
     data = json.loads(json.dumps(article_info))
- 
+    app.logger.info('hhhhhhhhhhhhhhhhhhhhh')
     data['ToUserName'] = params['FromUserName']
     data['FromUserName'] = params['ToUserName']
     data['Content'] = params['Content']
