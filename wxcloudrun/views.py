@@ -23,8 +23,8 @@ def talk():
     :return: 返回index页面
     """
     params = request.get_json()
-    for key in params:
-        app.logger.info(key+":"+params[key])
+    for key in params。items():
+        app.logger.info(key)
     return 'Wang'
     
     
