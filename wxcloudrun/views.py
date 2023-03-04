@@ -37,7 +37,7 @@ def talk():
     
     app.logger.info(json.dumps(data))
     app.logger.info('bbbbbbbbbbbbbbbb')
-    return make_succ_response(json.dumps(data))
+    return json.dumps(data)
 
     
     
