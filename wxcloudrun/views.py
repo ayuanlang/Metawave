@@ -32,8 +32,10 @@ def talk():
     data['FromUserName'] = params['ToUserName']
     data['MsgType'] = 'text'
     data['CreateTime'] = int(time.time())
-    
-    data['Content'] = '王总，您是说：'+params['Content']+' 吗？元浪完全没法和你沟通/:8-)，还是去双溪玩吧'
+    if params['Content'].find('我爱你')
+        data['Content'] = '我爱你'
+    else
+        data['Content'] = '王总，您是说：'+params['Content']+' 吗？元浪完全没法和你沟通/:8-)，还是去双溪玩吧'
     
     app.logger.info(json.dumps(data,ensure_ascii=False))
     app.logger.info('bbbbbbbbbbbbbbbb')
