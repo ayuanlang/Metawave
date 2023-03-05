@@ -4,7 +4,7 @@ from run import app
 from wxcloudrun.dao import delete_counterbyid, query_counterbyid, insert_counter, update_counterbyid
 from wxcloudrun.model import Counters
 from wxcloudrun.response import make_succ_empty_response, make_succ_response, make_err_response
-from wxcloudrun.WelM import WelM
+
 import hashlib
 import json
 import xmltodict 
@@ -39,7 +39,7 @@ def talk():
         data['Content'] = params['Content']      
     else:
         #data['Content'] = '王总，您是说：'+params['Content']+' 吗？元浪完全没法和你沟通/:8-)，还是去双溪玩吧'
-        data['Content']=WeLM(prompt=params['Content'])
+        data['Content']=Welm(prompt=params['Content'])
     
     app.logger.info(json.dumps(data,ensure_ascii=False))
     app.logger.info('bbbbbbbbbbbbbbbb')
@@ -103,3 +103,60 @@ def get_count():
     """
     counter = Counters.query.filter(Counters.id == 1).first()
     return make_succ_response(0) if counter is None else make_succ_response(counter.count)
+def Welm(prompt = "元浪",
+        Authorization = 'cfe7mpr2fperuifn6amg',
+         model = 'xl',
+         max_tokens = 64,
+         temperature = 0.85,
+         top_p = 0.95,
+         top_k = 50,
+         n = 5,
+         echo=False,
+         stop = ',，.。'):
+    
+
+    # Up to 30 requests every 1 minute for each token.
+    # Up to 1000000 characters can be generated every 24 hours.
+    # The quota is reset every 24 hours (starting from the first request,
+
+    headers = {
+        # 个人授权码
+        'Authorization': Authorization,
+    }
+    
+    json_data = {
+        #提示词
+        'prompt': prompt,
+        'model': model,
+        'max_tokens': max_tokens,
+        'temperature': temperature,
+        'top_p': top_p,
+        'top_k': top_k,
+        'n': n,
+        'echo': echo,
+        'stop': stop,
+    }
+    
+    response = requests.post('https://welm.weixin.qq.com/v1/completions',
+    
+  
+    if n != 1:# 若返回多条消息，则返回最多字数的那一条
+        stack = [[]]
+        rcontent='let me think'
+        try:            
+            print('kkkkkkkkkkkkkkk')
+            for i in eval(response.text)['choices']:
+               
+                if len(i['text'])>0:
+                    rcontent = (i['text'].split('\n'))[0]
+                
+            print('-'+rcontent+len(rcontent))
+            
+            
+        except:
+            pass
+
+        return rcontent
+    
+    else:# 返回第一条
+        return eval(response.text)['choices'][0]['text']
