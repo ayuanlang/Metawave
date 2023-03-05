@@ -147,7 +147,7 @@ def Welm(prompt = "元浪",
             for i in eval(response.text)['choices']:
                
                 if len(i['text'])>0:
-                    rcontent += (i['text'].split('\n'))[0]
+                    rcontent += (i['text'])
                 
             print('-'+rcontent+len(rcontent))
             
