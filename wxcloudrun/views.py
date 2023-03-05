@@ -11,6 +11,7 @@ import xmltodict
 import  time
 import logging
 from logging import FileHandler
+import requests
 
 @app.route('/')
 def index():
@@ -104,7 +105,7 @@ def get_count():
     counter = Counters.query.filter(Counters.id == 1).first()
     return make_succ_response(0) if counter is None else make_succ_response(counter.count)
 def Welm(prompt = "元浪",
-        Authorization = 'cfe7mpr2fperuifn6amg',
+         Authorization = 'cfe7mpr2fperuifn6amg',
          model = 'xl',
          max_tokens = 64,
          temperature = 0.85,
