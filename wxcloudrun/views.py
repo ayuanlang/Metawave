@@ -4,6 +4,7 @@ from run import app
 from wxcloudrun.dao import delete_counterbyid, query_counterbyid, insert_counter, update_counterbyid
 from wxcloudrun.model import Counters
 from wxcloudrun.response import make_succ_empty_response, make_succ_response, make_err_response
+from wxcloudrun.WelM import WelM
 import hashlib
 import json
 import xmltodict 
@@ -37,7 +38,8 @@ def talk():
     elif '猪' in params['Content']:
         data['Content'] = params['Content']      
     else:
-        data['Content'] = '王总，您是说：'+params['Content']+' 吗？元浪完全没法和你沟通/:8-)，还是去双溪玩吧'
+        #data['Content'] = '王总，您是说：'+params['Content']+' 吗？元浪完全没法和你沟通/:8-)，还是去双溪玩吧'
+        data['Content']=WeLM(prompt=params['Content'])
     
     app.logger.info(json.dumps(data,ensure_ascii=False))
     app.logger.info('bbbbbbbbbbbbbbbb')
