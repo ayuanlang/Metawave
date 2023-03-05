@@ -141,7 +141,7 @@ def Welm(prompt = "元浪",
     response = requests.post('https://welm.weixin.qq.com/v1/completions', headers=headers, json=json_data) 
     if n > 1:
         stack = [[]]
-        #rcontent='let me think'
+        rcontent='MetaWave:'
         try:            
             print('kkkkkkkkkkkkkkk')
             for i in eval(response.text)['choices']:
