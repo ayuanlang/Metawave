@@ -137,9 +137,7 @@ def Welm(prompt = "元浪",
         'stop': stop,
     }
     
-      response = requests.post('https://welm.weixin.qq.com/v1/completions', headers=headers, json=json_data)
-    
-  
+    response = requests.post('https://welm.weixin.qq.com/v1/completions', headers=headers, json=json_data) 
     if n > 1:
         stack = [[]]
         rcontent='let me think'
