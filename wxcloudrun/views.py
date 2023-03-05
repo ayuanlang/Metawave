@@ -140,7 +140,7 @@ def Welm(prompt = "元浪",
     response = requests.post('https://welm.weixin.qq.com/v1/completions',
     
   
-    if n > 1:# 若返回多条消息，则返回最多字数的那一条
+    if n > 1:
         stack = [[]]
         rcontent='let me think'
         try:            
