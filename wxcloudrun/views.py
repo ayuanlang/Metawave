@@ -34,7 +34,7 @@ def talk():
     data['CreateTime'] = int(time.time())
     if '我爱你' in params['Content']:
         data['Content'] = '我爱你'
-    else
+    else:
         data['Content'] = '王总，您是说：'+params['Content']+' 吗？元浪完全没法和你沟通/:8-)，还是去双溪玩吧'
     
     app.logger.info(json.dumps(data,ensure_ascii=False))
