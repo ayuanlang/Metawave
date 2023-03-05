@@ -156,5 +156,5 @@ def Welm(prompt = "元浪",
 
         return rcontent
     
-    else:# 返回第一条
+    else:
         return eval(response.text)['choices'][0]['text']
