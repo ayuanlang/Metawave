@@ -106,7 +106,7 @@ def get_count():
     return make_succ_response(0) if counter is None else make_succ_response(counter.count)
 def Welm(prompt = "元浪",
          Authorization = 'cfe7mpr2fperuifn6amg',
-         model = 'xl',
+         model = 'medium',
          max_tokens = 64,
          temperature = 0.85,
          top_p = 0.95,
