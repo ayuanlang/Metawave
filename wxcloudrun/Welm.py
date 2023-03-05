@@ -59,4 +59,4 @@ def WeLM(prompt = "元浪",
         return eval(response.text)['choices'][0]['text']
     
 
-print('t:'+WeLM(prompt='我是谁？'))
+#print('t:'+WeLM(prompt='我是谁？'))
